@@ -8,12 +8,12 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
+/** Parses the XML related to users, retrieved using the wikipedia API
+ * 
+*/
+
 public class ReadUserXML {
 
-	/**
-	 * @param args
-	 * @throws Exception 
-	 */
 	
 //	public static void main(String[] args) throws Exception {
 //		String totalNodeNumber = CountNodeNumber.countAllNodeNumber();
@@ -28,7 +28,7 @@ public class ReadUserXML {
 //		startWithUser(user, uclimit, totalNodeNumber, depth, rvlimit);
 //
 //	}
-	
+//	
 	public static List<String> startWithUser(String user, String uclimit,String totalNodeNumber, int depth, String rvlimit) throws Exception{
 		user = user.replaceAll(" ", "%20");
 		user = user.replaceAll("=", "%3D");

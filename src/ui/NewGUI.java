@@ -489,7 +489,7 @@ public class NewGUI {
 		listenOneText(textFolerPathVandalism, btnSubmitVandalism);
 		
 		JPanel panelUserVandalism = new JPanel();
-		tabbedPane_1.addTab("User vansalism", null, panelUserVandalism, null);
+		tabbedPane_1.addTab("User vandalism", null, panelUserVandalism, null);
 		panelUserVandalism.setLayout(null);
 		
 		JPanel panel_17 = new JPanel();

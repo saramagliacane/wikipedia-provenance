@@ -11,6 +11,11 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
+/**
+ * Creates neo4j indexes/ adds key-value pairs to them using the REST API
+ *
+ */
+
 public class Neo4jIndex {
 	private static final String SERVER_ROOT_URI = "http://localhost:7474/db/data/";
 	

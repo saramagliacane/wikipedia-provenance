@@ -17,12 +17,33 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
 
-
+/**
+ * Create the PROV graph in neo4j
+ *
+ */
+		
 
 public class CreateGraph {
 	
 	public static final String SERVER_ROOT_URI="http://localhost:7474/db/data/";
-		
+	
+	
+	/**
+	 * Create PROV representation for web pages (articles)	
+	 * @param title
+	 * @param revid
+	 * @param parentid
+	 * @param user
+	 * @param time
+	 * @param comment
+	 * @param size
+	 * @param pageid
+	 * @param totalNodeNumber
+	 * @throws URISyntaxException
+	 * @throws ClientHandlerException
+	 * @throws UniformInterfaceException
+	 * @throws JSONException
+	 */
 	public static void getData(String title, String revid, String parentid, String user, String time, String comment, String size, String pageid, String totalNodeNumber) throws URISyntaxException, ClientHandlerException, UniformInterfaceException, JSONException{
 		
 		checkDatabaseIsRunning();
@@ -147,6 +168,9 @@ public class CreateGraph {
 			String specialRelationshipRevisionParentUri = Neo4jIndex.queryNodeOrRelationship("relationship", "wasRevisionOf", "relationshipName", relationshipRevisionParentName);
 			URI relationshipRevParentUri = new URI("");
 			if (specialRelationshipRevisionParentUri == null){
+				
+				
+				
 				relationshipRevParentUri = addRelationship(articleNode, parentNode, "wasRevisionOf", "{}");
 				Neo4jIndex.addNodeOrRelationshipToIndex("relationship", "wasRevisionOf", "relationshipName", relationshipRevisionParentName, relationshipRevParentUri.toString());
 				
@@ -165,6 +189,22 @@ public class CreateGraph {
 			
 		}
 	}
+
+/**
+ * Creates the PROV representation in neo4j for the user
+ * @param title
+ * @param revid
+ * @param user
+ * @param time
+ * @param comment
+ * @param size
+ * @param pageid
+ * @param totalNodeNumber
+ * @throws URISyntaxException
+ * @throws ClientHandlerException
+ * @throws UniformInterfaceException
+ * @throws JSONException
+ */
 	
 public static void getUserData(String title, String revid, String user, String time, String comment, String size, String pageid, String totalNodeNumber) throws URISyntaxException, ClientHandlerException, UniformInterfaceException, JSONException{
 		
@@ -265,6 +305,8 @@ public static void getUserData(String title, String revid, String user, String t
 //		}
 		
 	}
+
+
 	
 	private static URI createNode(){
 		
