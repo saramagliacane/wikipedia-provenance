@@ -62,6 +62,7 @@ public class ReadPageXML {
 	//TODO: changed here - saves also the xml response
 	public static void readXMLbyURL(String fileName, String totalNodeNumber,
 			int depth, String uclimit, String rvlimit,String title) throws Exception{
+		title = title.replaceAll("/", "%2F");
 		GetXML.saveXML(DIRECTORY+title+".xml", fileName);
 		readXMLbyURL(fileName,  totalNodeNumber, depth,  uclimit,  rvlimit);
 		
@@ -148,7 +149,7 @@ public class ReadPageXML {
 							title = title.replaceAll(" ", "%20");
 							title = title.replaceAll("=", "%3D");
 							title = title.replaceAll("[+]", "%2B");
-							title = title.replaceAll("/", "_");
+							title = title.replaceAll("/", "%2F");
 							
 							GetXML.saveXML(DIRECTORY + title + "_" + revid
 									+ ".html",
